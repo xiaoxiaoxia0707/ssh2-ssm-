@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+ 
+ 	<package name="ssh2Demo"  extends="struts-default" namespace="/">
+        
+       <action name="save" class="studentAction" method="save">
+			<result name="saveSuccess" type="redirectAction"><!-- 重定向到下一个action -->
+				<param name="actionName">query</param>
+			</result>
+		</action>
+		<action name="query" class="studentAction" method="query">
+			<result name="success">list.jsp</result>
+		</action>
+		<action name="selectOne" class="studentAction" method="selectOne">
+			<result name="noresult">noresult.jsp</result>
+			<result name="result">result.jsp</result>
+		</action>
+		<action name="delete" class="studentAction" method="delete">
+			<result name="deleteSuccess" type="redirectAction">
+				<param name="actionName">query</param>
+			</result>
+		</action>
+		<action name="update" class="studentAction" method="update">
+			<result name="updateSuccess" type="redirectAction">
+				<param name="actionName">query</param>
+			</result>
+		</action>
+ 	</package>
+</struts>    
